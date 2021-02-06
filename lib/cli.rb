@@ -1,13 +1,7 @@
 class CLI
-    def start
-     puts ""   
-
-
+    
+    def welcome
+        puts "Hey, Beautiful! Welcome to your one-stop shop for all your beauty needs!"
+        
+    end
 end
-
-# best hair
-# lace wigs 
-# virgin hair
-# braids
-# makeup
-# tools

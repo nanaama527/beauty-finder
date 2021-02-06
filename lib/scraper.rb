@@ -17,7 +17,7 @@ class Scraper
         url = "https://www.samsbeauty.com/service/product/BestSellingNewProduct.beauty?category_no=34"
         unparsed_page = open(url)
         parsed_page = Nokogiri::HTML(unparsed_page)
-        binding.pry
+        # binding.pry
     end
 
     def get_page

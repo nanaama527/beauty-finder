@@ -24,15 +24,22 @@ class CLI
     end
 
     def select_option
-        input = nil
+        puts "\nSelect an option between 1 and 4 for the the products that you'd like to see. Type 'option' to see the options again, or type 'exit' to leave."
+        input = gets.strip
         while input != "exit"
-            puts "\nSelect an option between 1 and 4 for the the products that you'd like to see. Type 'option' to see the options again, or type 'exit' to leave."
-            input = gets.strip
-
-            if input.to_i > ) && 
+            input = input.to_i
+            option_name = options[input-1].name.strip
+            if input.to_i > 0 && input.to_i < 5
+                puts "Here's our inventory for #{options.upcase}! Happy Shopping!"
+            else
+            end
+        end
+    end      
                 
 
+                
 
+    
 
 
 

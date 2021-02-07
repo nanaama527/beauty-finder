@@ -2,17 +2,16 @@ require 'nokogiri'
 require 'pry'
 require 'open-uri'
 
-# require_relative "../config/environment"
+require_relative "../config/environment"
 
 
 class Scraper
-    
 
     def body_cream_scraper
         url = "https://www.bathandbodyworks.com/c/body-care/body-cream"
         selector ="#primary div.search-result-content ul li .product-tile .product-outline-block .product-cont"
-        doc = Nokogiri::HTML(open(url))
-        doc.css(selector).each {|o|
+        @doc = Nokogiri::HTML(open(url))
+        @doc.css(selector).each {|o|
             puts o.text.gsub(/[[:space]]/,"")
         }
         
@@ -22,8 +21,8 @@ class Scraper
     def shower_gel_scraper
         url = "https://www.bathandbodyworks.com/c/body-care/body-wash-shower-gel"
         selector = "#primary div.search-result-content ul li .product-tile .product-outline-block .product-cont"
-        doc = Nokogiri::HTML(open(url))
-        doc.css(selector).each {|o|
+        @doc_1 = Nokogiri::HTML(open(url))
+        @doc_1.css(selector).each {|o|
             puts o.text.gsub(/[[:space]]/,"")
         }
     end
@@ -31,8 +30,8 @@ class Scraper
     def body_mists_scraper
         url = "https://www.bathandbodyworks.com/c/body-care/body-sprays-mists"
         selector = "#primary div.search-result-content ul li .product-tile .product-outline-block .product-cont"
-        doc = Nokogiri::HTML(open(url))
-        doc.css(selector).each {|o|
+        @doc_2 = Nokogiri::HTML(open(url))
+        @doc_2.css(selector).each {|o|
             puts o.text.gsub(/[[:space]]/,"")
         }
     end
@@ -40,28 +39,31 @@ class Scraper
     def body_lotion_scraper
         url = "https://www.bathandbodyworks.com/c/body-care/body-lotion"
         selector = "#primary div.search-result-content ul li .product-tile .product-outline-block .product-cont"
-        doc = Nokogiri::HTML(open(url))
-        doc.css(selector).each {|o|
+        @doc_3= Nokogiri::HTML(open(url))
+        @doc_3.css(selector).each {|o|
             puts o.text.gsub(/[[:space]]/,"")
         }
     end
 
-    def item_container
-        doc.css(" .grid-item-info")
-       
-    end
-
     def get_names
-        item_container.css(" .product-name").css("p").children.map { |name| name.text }.compact
+        # binding.pry
+        names = @doc.css("h3").css(" .product-name").children.map { |name| name.text }.compact
+        names.map do |names|
+            names.gsub(/\n/,"").strip
+        end
     end
-
+    
     private
 
     def get_prices
-        item_container.css(" .product-pricing").css("span.local").children.map { |price| price.text }.compact
+       prices = @doc.css(" .product-pricing").css("span.product-sales-price").children.map { |price| price.text }.compact
+       prices.map do |names|
+            prices.gsub(/\n/,"").strip
+       end
     end
+
 
 end
    
 
-
+Scraper.new.body_cream_scraper

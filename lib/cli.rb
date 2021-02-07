@@ -1,5 +1,4 @@
-require_relative "../lib/cli"
-
+require_relative "../lib/scraper"
 
 class CLI
     
@@ -23,5 +22,5 @@ class CLI
         puts "For 'Body Lotions', press 4."
     end
 
-    
+
 end

@@ -4,7 +4,8 @@ require 'pry'
 require_relative "../lib/scraper"
 
 class ShowerGel
-  
+    
+
     @@all = []
     
     def initialize
@@ -22,7 +23,7 @@ class ShowerGel
             puts "#{index + 1}: #{self.name}"
         end
         puts "\n"
-        input = gets.chomp
+        input = gets.strip
         input = input.to_i
         if input.is_3? String || input > ShowerGel.all.length || input <= 0
             puts "Please enter a number shown on screen"

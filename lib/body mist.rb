@@ -1,8 +1,7 @@
 require 'pastel'
 require 'pry'
 
-require_relative "../lib/scraper"
-require_relative "../lib/cli"
+require_relative "../config/environment"
 
 class BodyMist 
     @@all = []
@@ -23,7 +22,7 @@ class BodyMist
             puts "#{index + 1}: #{self.name}"
         end
         puts "\n"
-        input = gets.chomp
+        input = gets.strip
         input = input.to_i
         if input.is_3? String || input > BodyMist.all.length || input <= 0
             puts "Please enter a number shown on screen"
@@ -43,7 +42,7 @@ class BodyMist
         puts "Would you like to go back to the previous list?"
         puts "1: Yes"
         puts "2: Exit"
-        input = gets.chomp
+        input = gets.strip
         if input == "1"
             body_mists()
         end

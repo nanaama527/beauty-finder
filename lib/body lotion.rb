@@ -1,8 +1,7 @@
 require 'pastel'
 require 'pry'
 
-require_relative "../lib/scraper"
-require_relative "../lib/cli"
+require_relative "../config/environment"
 
 class BodyLotion 
     @@all = []
@@ -22,7 +21,7 @@ class BodyLotion
             puts "#{index + 1}: #{self.name}"
         end
         puts "\n"
-        input = gets.chomp
+        input = gets.strip
         input = input.to_i
         if input.is_3? String || input > BodyLotion.all.length || input <= 0
             puts "Please enter a number shown on screen"

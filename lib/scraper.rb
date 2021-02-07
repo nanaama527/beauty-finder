@@ -2,11 +2,12 @@ require 'nokogiri'
 require 'pry'
 require 'open-uri'
 
-# require_relative "../lib/cli"
+# require_relative "../config/environment"
 
 
 class Scraper
     
+
     def body_cream_scraper
         url = "https://www.bathandbodyworks.com/c/body-care/body-cream"
         selector ="#primary div.search-result-content ul li .product-tile .product-outline-block .product-cont"
@@ -45,19 +46,20 @@ class Scraper
         }
     end
 
-    # def item_container
-    #     doc.css(" .grid-item-info")
-    # end
+    def item_container
+        doc.css(" .grid-item-info")
+       
+    end
 
-    # def get_names
-    #     item_container.css(" .product-name").css("p").children.map { |name| name.text }.compact
-    # end
+    def get_names
+        item_container.css(" .product-name").css("p").children.map { |name| name.text }.compact
+    end
 
-    # private
+    private
 
-    # def get_prices
-    #     item_container.css(" .product-pricing").css("span.local").children.map { |price| price.text }.compact
-    # end
+    def get_prices
+        item_container.css(" .product-pricing").css("span.local").children.map { |price| price.text }.compact
+    end
 
 end
    

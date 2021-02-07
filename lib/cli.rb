@@ -22,4 +22,6 @@ class CLI
         puts "For 'Body Sprays & Mists', press 3."
         puts "For 'Body Lotions', press 4."
     end
+
+    
 end

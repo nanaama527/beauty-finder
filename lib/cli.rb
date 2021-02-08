@@ -99,8 +99,8 @@ class CLI
                
     def self.shower_gel
         puts "~~~~ ** SHOWER GELS ** ~~~~~"
-        puts "Select a shower gel you'd like to view." + "\n\n"
-        self.all.each_with_index do |shower_gel, index|
+        puts "Select a shower gel you'd like to view."
+        ShowerGel.all.each_with_index do |shower_gel, index|
             puts "#{index + 1}: #{shower_gel.name}"
         end
         puts "\n"
@@ -114,7 +114,6 @@ class CLI
         shower_gel_choice = ShowerGel.all[input-1]
         puts "\n"
         puts "Name of Fragrance Mist: #{shower_gel_choice.name}"
-       
         puts "Price: #{shower_gel_choice.price}"
         puts "\n"
         puts "Would you like to go back to the previous list?"
@@ -126,10 +125,10 @@ class CLI
         end
     end
     
-    def self.body_lotion(input)
+    def self.body_lotion
         puts "~~~~ ** BODY LOTION ** ~~~~~"
-        puts "Select a body lotion you'd like to view." + "\n\n"
-        self.all.each_with_index do |body_lotion, index|
+        puts "Select a body lotion you'd like to view." 
+        BodyLotion.all.each_with_index do |body_lotion, index|
             puts "#{index + 1}: #{body_lotion.name}"
         end
         puts "\n"
@@ -142,7 +141,7 @@ class CLI
     def self.body_lotion_detail(input)
         body_lotion_choice = BodyLotion.all[input-1]
         puts "\n"
-        puts "Name of Fragrance Mist: #{body_lotion_choice.name}"
+        puts "Name of Body Lotion: #{body_lotion_choice.name}"
         puts "Price: #{body_lotion_choice.price}"
         puts "\n"
         puts "Would you like to go back to the previous list?"
@@ -154,10 +153,10 @@ class CLI
         end
     end
     
-    def self.body_mists(input)
+    def self.body_mists
         puts "~~~~ ** BODY SPRAYS & MISTS ** ~~~~~"
-        puts "Select a fragrance mist you'd like to view." + "\n\n"
-        self.all.each_with_index do |body_mists, index|
+        puts "Select a fragrance mist you'd like to view." 
+        BodyMist.all.each_with_index do |body_mists, index|
             puts "#{index + 1}: #{body_mists.name}"
         end
         puts "\n"

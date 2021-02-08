@@ -73,13 +73,14 @@ class Scraper
         end
     end
 
+
     def self.get_shower_gel
         url = "https://www.bathandbodyworks.com/c/body-care/body-wash-shower-gel"
             product_array = names_and_prices(url)
             product_array.each do |shower_gel|
-                name = shower_gel[name]
-                price = shower_gel[price]
-                url = shower_gel[url]
+                name = shower_gel[:name]
+                price = shower_gel[:price]
+                url = shower_gel[:url]
                 ShowerGel.new(name, price, url)
             end
     end
@@ -89,9 +90,9 @@ class Scraper
         url = "https://www.bathandbodyworks.com/c/body-care/body-cream"
             product_array = names_and_prices(url)
             product_array.each do |body_cream|
-                name = body_cream[name]
-                price = body_cream[price]
-                url = body_cream[url]
+                name = body_cream[:name]
+                price = body_cream[:price]
+                url = body_cream[:url]
                 BodyCream.new(name, price, url)
             end
     end
@@ -100,9 +101,9 @@ class Scraper
         url = "https://www.bathandbodyworks.com/c/body-care/body-sprays-mists"
         product_array = names_and_prices(url)
             product_array.each do |body_mists|
-                name = body_mists[name]
-                price = body_mists[price]
-                url = body_mists[url]
+                name = body_mists[:name]
+                price = body_mists[:price]
+                url = body_mists[:url]
                 BodyMist.new(name, price, url)
             end
 
@@ -111,10 +112,10 @@ class Scraper
     def self.get_body_lotion
         url = "https://www.bathandbodyworks.com/c/body-care/body-lotion"
         product_array = names_and_prices(url)
-            product_array.each do |body_mists|
-                name = body_lotion[name]
-                price = body_lotion[price]
-                url = body_lotion[url]
+            product_array.each do |body_lotion|
+                name = body_lotion[:name]
+                price = body_lotion[:price]
+                url = body_lotion[:url]
                 BodyLotion.new(name, price, url)
             end
     end
@@ -122,4 +123,4 @@ class Scraper
 end
    
 
-Scraper.new.body_cream_scraper
+Scraper.get_description("https://www.bathandbodyworks.com/p/strawberry-pound-cake-fine-fragrance-mist-026192926.html?cgid=body-sprays-mists")

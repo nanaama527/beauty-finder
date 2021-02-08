@@ -122,5 +122,3 @@ class Scraper
 
 end
    
-
-Scraper.get_description("https://www.bathandbodyworks.com/p/strawberry-pound-cake-fine-fragrance-mist-026192926.html?cgid=body-sprays-mists")

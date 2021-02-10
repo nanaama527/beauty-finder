@@ -113,7 +113,7 @@ class CLI
     def self.shower_gel_detail(input)
         shower_gel_choice = ShowerGel.all[input-1]
         puts "\n"
-        puts "Name of Fragrance Mist: #{shower_gel_choice.name}"
+        puts "Name of Shower Gel: #{shower_gel_choice.name}"
         puts "Price: #{shower_gel_choice.price}"
         puts "\n"
         puts "Would you like to go back to the previous list?"

@@ -33,16 +33,25 @@ class CLI
             end
 
             if input == "1"
+                # binding.pry
+                if BodyCream.all.length == 0 
                 CLI.create_body_cream
+                end
                 CLI.body_cream
             elsif input == "2"
+                if ShowerGel.all.length == 0
                 CLI.create_shower_gel
+                end
                 CLI.shower_gel
             elsif input == "3"
+                if BodyMist.all.length == 0
                 CLI.create_body_mists
+                end
                 CLI.body_mists
             elsif input == "4"
+                if BodyLotion.all.length == 0
                 CLI.create_body_lotion
+                end
                 CLI.body_lotion
             elsif input == "exit"
                 self.exit

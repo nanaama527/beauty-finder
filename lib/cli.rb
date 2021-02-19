@@ -47,10 +47,27 @@ class CLI
             elsif input == "exit"
                 self.exit
             else
+                puts "Oops! It seems like that might be the wrong input, try again?"
                 self.select_option
             end
+        self.main_menu
     end      
-               
+    
+   def main_menu
+        puts "To see our other products, please enter 1."
+        puts "To exit the program, please enter 2."
+        input = gets.strip
+        if input == "1"
+            self.options
+        elsif input == "2"
+            self.exit
+        else
+          puts "Oops! It seems like that might be the wrong input, try again?"
+          self.main_menu
+        end
+   end
+
+
     def exit
         abort "We'll catch you later! Until next time!"
     end
@@ -84,7 +101,6 @@ class CLI
         input = gets.strip
         input = input.to_i
         if input > 0 && input <= BodyCream.all.length
-        # binding.pry
         self.body_cream_detail(input)
         else
             self.body_cream

@@ -75,6 +75,8 @@ class Scraper
 
 
     def self.get_shower_gel
+        puts "----------------_____SCRAPED_________----------------------"
+        
         url = "https://www.bathandbodyworks.com/c/body-care/body-wash-shower-gel"
             product_array = names_and_prices(url)
             product_array.each do |shower_gel|

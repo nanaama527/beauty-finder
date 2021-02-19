@@ -28,6 +28,8 @@ class CLI
         input = gets.strip
             if input.to_i > 0 && input.to_i < 5
                 puts "Here's our inventory for option #{input}! Happy Shopping!"
+                elsif input.to_i <= 0 && input.to_i >= 5
+                    puts "Oops! It seems like that might be the wrong input, try again?"
             end
 
             if input == "1"
@@ -37,13 +39,15 @@ class CLI
                 CLI.create_shower_gel
                 CLI.shower_gel
             elsif input == "3"
-                CLI.create_body_lotion
-                CLI.body_lotion
-            elsif input == "4"
                 CLI.create_body_mists
                 CLI.body_mists
+            elsif input == "4"
+                CLI.create_body_lotion
+                CLI.body_lotion
             elsif input == "exit"
                 self.exit
+            else
+                self.select_option
             end
     end      
                
@@ -79,7 +83,12 @@ class CLI
         puts "Please enter a number shown on screen"
         input = gets.strip
         input = input.to_i
+        if input > 0 && input <= BodyCream.all.length
+        # binding.pry
         self.body_cream_detail(input)
+        else
+            self.body_cream
+        end
     end
 
     def self.body_cream_detail(input)
@@ -107,7 +116,11 @@ class CLI
         puts "Please enter a number shown on screen"
         input = gets.strip
         input = input.to_i
+        if input > 0 && input <= ShowerGel.all.length
         self.shower_gel_detail(input)
+        else
+            self.shower_gel
+        end
     end
 
     def self.shower_gel_detail(input)
@@ -135,7 +148,11 @@ class CLI
         puts "Please enter a number shown on screen"
         input = gets.strip
         input = input.to_i
+        if input > 0 && input <= BodyLotion.all.length
         self.body_lotion_detail(input)
+        else
+            self.body_lotion
+        end
     end
 
     def self.body_lotion_detail(input)
@@ -163,7 +180,11 @@ class CLI
         puts "Please enter a number shown on screen"
         input = gets.strip
         input = input.to_i
+        if input > 0 && input <= BodyMist.all.length
         self.body_mist_detail(input)
+        else
+            self.body_mists
+        end
     end
 
     def self.body_mist_detail(input)
@@ -182,3 +203,10 @@ class CLI
     end
 
 end
+
+
+
+
+
+
+
